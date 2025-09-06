@@ -16,14 +16,6 @@ def dichotomous_search(f, a, b, epsilon=1/10, delta=1/1000):
         x1 = mid - delta/2
         x2 = mid + delta/2
 
-        if f(x1) < f(x2) - 1e-12:
-            b = x2   # minimum ada di kiri
-        elif f(x1) > f(x2) + 1e-12:
-            a = x1   # minimum ada di kanan
-        else:
-            a = x1
-            b = x2
-
         hasil_iterasi.append({
             "Iter": iterasi,
             "a": a,
@@ -34,6 +26,14 @@ def dichotomous_search(f, a, b, epsilon=1/10, delta=1/1000):
             "f(x1)": f(x1),
             "f(x2)": f(x2)
         })
+
+        if f(x1) < f(x2) - 1e-12:
+            b = x2   # minimum ada di kiri
+        elif f(x1) > f(x2) + 1e-12:
+            a = x1   # minimum ada di kanan
+        else:
+            a = x1
+            b = x2
 
         iterasi += 1
 
